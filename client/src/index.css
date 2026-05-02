@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Dark Neubrutalist Palette */
+  --bg-main: #000000;
+  --primary: #FF5733; /* Bold Orange */
+  --secondary: #3B82F6; /* Electric Blue */
+  --accent: #FFD700; /* Cyber Yellow */
+  --text-main: #ffffff;
+  --white: #000000;
+  
+  /* Neubrutalist Borders & Shadows (Flipped for Dark) */
+  --border-width: 3px;
+  --border-color: #ffffff;
+  --br-card: 16px;
+  --br-btn: 8px;
+  --hard-shadow: 6px 6px 0px #ffffff;
+  --hard-shadow-sm: 3px 3px 0px #ffffff;
+  --hard-shadow-lg: 10px 10px 0px #ffffff;
+  
+  /* Glassmorphism (Darkened) */
+  --glass-bg: rgba(0, 0, 0, 0.7);
+  --glass-blur: blur(12px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .brand {
+  font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s ease;
+}
+
+/* Layout */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Glassmorphism Navbar */
+.navbar {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: var(--border-width) solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.75rem;
+  letter-spacing: -1px;
+}
+
+/* Neubrutalist Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--br-btn);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  background: var(--white);
+  box-shadow: var(--hard-shadow-sm);
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-accent {
+  background: var(--accent);
+}
+
+/* Bento Box Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.bento-card {
+  background: var(--white);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--br-card);
+  padding: 1.5rem;
+  box-shadow: var(--hard-shadow);
+  transition: transform 0.2s ease;
+}
+
+.bento-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--hard-shadow-lg);
+}
+
+/* Product Cards (Bento Style) */
+.product-card-bento {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) { .product-card-bento { grid-column: span 4; } }
+@media (max-width: 768px) { .product-card-bento { grid-column: span 6; } }
+@media (max-width: 480px) { .product-card-bento { grid-column: span 12; } }
+
+.product-image-bento {
+  aspect-ratio: 1;
+  background: #1a1a1a;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.product-image-bento img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hero Neubrutalist */
+.hero-neubrutalist {
+  grid-column: span 12;
+  background: var(--accent);
+  color: #000;
+  padding: 4rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Dashboard Bento */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-bento {
+  grid-column: span 1;
+}
+
+.table-bento {
+  grid-column: span 4;
+}
+
+/* Utility */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.error-neubrutalist {
+  background: #ff4444;
+  color: white;
+  border: 3px solid var(--border-color);
+  padding: 1rem;
+  font-weight: 700;
+  box-shadow: 4px 4px 0px var(--border-color);
+  margin-bottom: 1.5rem;
+}
